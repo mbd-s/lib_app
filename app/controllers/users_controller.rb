@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     userLookingAtOwnPage = @user.id == current_user.id
-    if userLookingAtOwnPage
+    if !!userLookingAtOwnPage
       render :show
     else
       redirect_to login_path
