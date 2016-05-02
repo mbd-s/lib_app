@@ -1,3 +1,4 @@
 <div>
-  Welcome, <%= @user.email %>
-</div>
+  Welcome, <%= @user.first_name %> <%= @user.last_name %>!
+  Your account was created at
+  <%= @user.created_at.strftime("%I:%M %p on %d %B %Y")%>.</div>
