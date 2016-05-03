@@ -1,0 +1,7 @@
+<div>
+  <p><strong>Library:</strong> <%= @library.name %></p>
+  <p><strong>Floors:</strong> <%= @library.floor_count %></p>
+  <p><strong>Area:</strong> <%= @library.floor_area %> feet<sup>2</sup></p>
+  <%= link_to "Edit", edit_library_path(@library)%>
+  <%= button_to "Delete", @library %>
+</div>
