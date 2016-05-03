@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in?, only: [:show]
 
   def index
     @users = User.all
@@ -19,8 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    userLookingAtOwnPage = @user.id == current_user.id
-    if !!userLookingAtOwnPage
+    isAllowed = (current_user ? @user.id == current_user.id : false)
+    if isAllowed
       render :show
     else
       redirect_to login_path

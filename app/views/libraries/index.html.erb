@@ -1,7 +1,9 @@
+<h2>Libraries</h2>
+
 <% @libraries.each do |library| %>
-  <div>
-    <h3><%= library.name %></h3>
-  </div>
-  <br>
+    <h5><%= link_to library.name, library_path(library), method: :get %></h5>
+  <% if current_user %>
+    <%= button_to "Join", library_users_path(library) %>
+  <% end %>
 <% end %>
 <%= button_to "Add a new library", new_library_path, method: :get %>
