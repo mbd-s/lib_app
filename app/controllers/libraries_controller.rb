@@ -18,7 +18,7 @@ class LibrariesController < ApplicationController
   def show
     library_id = params[:id]
     @library = Library.find_by_id(library_id)
-      render :show
+    render :show
   end
 
   def edit
