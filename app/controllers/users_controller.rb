@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if isAllowed
       render :show
     else
-      redirect_to login_path
+      redirect_to user_path(current_user.id)
     end
   end
 
